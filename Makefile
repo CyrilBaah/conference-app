@@ -18,6 +18,10 @@ delete-cluster:
 	@echo "Deleting Kind cluster..."
 	kind delete cluster --name $(CLUSTER_NAME)
 
+install-nginxingresscontroller:
+	@echo "Install NGINX Ingress Controller..."
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
+
 cluster-info:
 	@echo "Get cluster information..."
 	kubectl cluster-info --context kind-$(CLUSTER_NAME)
