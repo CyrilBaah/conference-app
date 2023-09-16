@@ -26,13 +26,25 @@ get-nodes:
 	@echo "Get cluster nodes..."
 	kubectl get nodes -owide
 
+get-pods:
+	@echo "Get cluster pods..."
+	kubectl get pods -owide
+
+expose-frontend:
+	@echo "Get port for frontend..."
+	kubectl port-forward svc/fmtok8s-frontend -n default 8080:80
+
 
 help:
 	@echo "Available targets:"
-	@echo "  create-cluster - Create the Kind cluster"
-	@echo "  get-cluster    - List available Kind clusters"
-	@echo "  set-context    - Set kubectl context to the Kind cluster"
-	@echo "  delete-cluster - Delete the Kind cluster"
+	@echo "  create-cluster   - Create the Kind cluster"
+	@echo "  get-cluster      - List available Kind clusters"
+	@echo "  set-context      - Set kubectl context to the Kind cluster"
+	@echo "  delete-cluster   - Delete the Kind cluster"
+	@echo "  get-pods         - List all pods"
+	@echo "  get-nodes        - List all nodes"
+	@echo "  expose-frontend  - Makes frontend app accessible"
 	@echo "  help           - Display this help message"
+
 
 .DEFAULT_GOAL := help
