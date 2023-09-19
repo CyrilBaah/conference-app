@@ -57,7 +57,7 @@ help:
 	@echo "  get-nodes        - List all nodes"
 	@echo "  expose-frontend  - Makes frontend app accessible"
 	@echo "  get-nginxingress - List all nginx ingress"
-	@echo "  get-logs		  - Get logs command"
+	@echo "  get-logs         - Get logs command"
 	@echo "  help             - Display this help message"
 
 

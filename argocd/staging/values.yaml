@@ -1,0 +1,18 @@
+grafana:
+  enabled: false
+prometheus:
+  enabled: false
+fmtok8s-frontend:  
+  prometheus:
+    enabled: false
+fmtok8s-agenda-service:
+  redis: 
+    architecture: standalone
+  prometheus:
+    enabled: false
+fmtok8s-email-service:
+  prometheus:
+    enabled: false
+fmtok8s-c4p-service:
+  prometheus:
+    enabled: false
