@@ -22,6 +22,14 @@ install-nginxingresscontroller:
 	@echo "Install NGINX Ingress Controller..."
 	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/kind/deploy.yaml
 
+get-nginxingress:
+	@echo "Get nginxingress pods..."
+	kubectl get pods -n ingress-nginx -owide
+
+get-logs:
+	@echo "Get pods for logs command..."
+	@echo "$ kubectl logs -f <name-app-xxx>"
+
 cluster-info:
 	@echo "Get cluster information..."
 	kubectl cluster-info --context kind-$(CLUSTER_NAME)
@@ -48,7 +56,9 @@ help:
 	@echo "  get-pods         - List all pods"
 	@echo "  get-nodes        - List all nodes"
 	@echo "  expose-frontend  - Makes frontend app accessible"
-	@echo "  help           - Display this help message"
+	@echo "  get-nginxingress - List all nginx ingress"
+	@echo "  get-logs		  - Get logs command"
+	@echo "  help             - Display this help message"
 
 
 .DEFAULT_GOAL := help
