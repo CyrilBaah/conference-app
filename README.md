@@ -41,6 +41,27 @@ Before you begin, ensure you have met the following requirements:
     helm install conference fmtok8s/fmtok8s-conference-chart
     ```
 
+# Argo Rollout Installation | [Argo Rollout Docs](https://argoproj.github.io/argo-rollouts/installation/#controller-installation) 
+1. Create namespace for argo-rollout
+    ```
+    kubectl create namespace argo-rollouts
+    kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
+    ```
+
+2. Configure ingress-nginx
+    ```
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+    ```
+
+3. Install Plugin
+    ```
+    brew install argoproj/tap/kubectl-argo-rollouts
+    ```
+4. Displa dashboard
+    ```
+    kubectl argo rollouts dashboard
+    ```
+5. Open | http://localhost:3100/rollouts/default
 ## Reference
 
 For more information and inspiration, you may refer to the [From Monolith to Kubernetes](https://github.com/salaboy/from-monolith-to-k8s) project by [salaboy](https://github.com/salaboy).
